@@ -76,6 +76,8 @@ def from_string(string):
 
         todo = Todo()
 
+        todo_id = 0
+
         if todo_pre_data:
             todo.completed = todo_pre_data.group(1) == 'x'
 
@@ -114,6 +116,9 @@ def from_string(string):
             text = todo_tag_regex.sub('', text).strip()
 
         todo.text = text
+
+        todo.id = todo_id
+        todo_id  += 1
 
         todos.append(todo)
 
@@ -175,6 +180,7 @@ class Todo:
     :param list projects: A list of projects without leading ``+``
     :param list contexts: A list of projects without leading ``@``
     :param dict tags: A dict of tags
+    :param int id: A unique, internal indentity number
     """
     text = None
     completed = False
@@ -184,8 +190,9 @@ class Todo:
     projects = []
     contexts = []
     tags = {}
+    id = None
 
-    def __init__(self, text=None, completed=False, completion_date=None, priority=None, creation_date=None, projects=None, contexts=None, tags=None):
+    def __init__(self, text=None, completed=False, completion_date=None, priority=None, creation_date=None, projects=None, contexts=None, tags=None, id=None):
         self.text = text
         self.completed = completed
 
@@ -197,6 +204,7 @@ class Todo:
         self.projects = projects
         self.contexts = contexts
         self.tags = tags
+        self.id = id
 
     def to_dict(self):
         """Return a dict representation of this Todo instance.
@@ -212,6 +220,7 @@ class Todo:
             'projects': self.projects,
             'contexts': self.contexts,
             'tags': self.tags,
+            'id': self.id,
         }
 
     def __setattr__(self, name, value):
