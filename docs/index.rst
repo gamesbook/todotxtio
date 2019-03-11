@@ -46,6 +46,8 @@ The functions below all return a plain-old Python list filled with :class:`todot
     # Or: list_of_todos = todotxtio.from_stream(stream_full_of_todos)
     # Or: list_of_todos = todotxtio.from_dicts(list_of_todos_dict)
 
+Importing a list in this way will automatically create an `id` attribute (a unique integer) for each :class:`todotxtio.Todo` object.
+
 The :class:`todotxtio.Todo` class
 *********************************
 
@@ -59,7 +61,8 @@ Create a new todo by instantiating a :class:`todotxtio.Todo` object. You can fee
     todo = todotxtio.Todo(
         text='Thank Guido for such an awesome programming language',
         priority='A',
-        creation_date='2016-11-20'
+        creation_date='2016-11-20',
+        id=42
     )
 
     print(todo) # (A) 2016-11-20 Thank Guido for such an awesome programming language
@@ -74,6 +77,8 @@ Or you also can instantiate an empty (or partially-instantiated) :class:`todotxt
 
     todo.text = 'Thank Guido for such an awesome programming language'
     todo.priority = 'A'
+    todo.id = 1
+
 
     print(todo) # (A) 2016-11-20 Thank Guido for such an awesome programming language
 
