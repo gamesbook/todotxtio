@@ -14,6 +14,12 @@ Everything you need to know is located [here](https://epocdotfr.github.io/todotx
 
 See [here](https://github.com/EpocDotFr/todotxtio/releases).
 
+## Contributors
+
+Thanks to:
+
+  - [@gamesbook](https://github.com/gamesbook) (todo.id attribute)
+
 ## End words
 
 If you have questions or problems, you can [submit an issue](https://github.com/EpocDotFr/todotxtio/issues).
